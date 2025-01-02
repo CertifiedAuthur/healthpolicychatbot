@@ -1,11 +1,10 @@
-import streamlit as st
 from io import BytesIO
 from langchain_community.vectorstores import FAISS
 from langchain.docstore.document import Document
 from langchain_huggingface import HuggingFaceEmbeddings
 import fitz  # PyMuPDF for text extraction
 import trafilatura
-from utils import clean_text
+from src.utils import clean_text
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -24,8 +23,7 @@ class DocumentProcessor:
     }
 
     def __init__(self):
-        if "section_embeddings" not in st.session_state:
-            st.session_state.section_embeddings = {}  # Store embeddings for each section
+        pass
 
     def extract_text_from_pdf(self, pdf_path):
         """
