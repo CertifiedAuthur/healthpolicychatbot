@@ -1,5 +1,4 @@
 import sqlite3
-import streamlit as st
 from src.document_processor import DocumentProcessor
 
 # Initialize document processor

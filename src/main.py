@@ -105,7 +105,7 @@ async def ingress_file(file: UploadFile = File(...)):
     return await ingress_file_doc(file.filename, file_path)
 
 @app.post("/retrieve")
-async def retrieve_query(requestModel:RequestModel):
+def retrieve_query(requestModel:RequestModel):
     response = retrieve_all_files_in_section(requestModel.query, requestModel.section)
     return JSONResponse(content={"response": response})
         
