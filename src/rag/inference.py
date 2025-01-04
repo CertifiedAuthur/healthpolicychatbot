@@ -82,9 +82,6 @@ def retrieve_all_files_in_section(query, section):
 
     cursor.execute(f"SELECT file_name, file_content FROM {section}")
     files = cursor.fetchall()
-    
-    text_file_path, text_content = extract_pdf_from_db(file_name, section)
-
     if not files:
         print(f"No files found in section '{section}'.")
         return
@@ -93,7 +90,7 @@ def retrieve_all_files_in_section(query, section):
     group_response = []
     for file_name, file_content in files:
     
-        example_queries_entities = generate_example_queries_entities(text_content)
+        example_queries_entities = generate_example_queries_entities(file_content)
 
         # Initialize GraphRAG with valid working directory
         grag = GraphRAG(

@@ -4,9 +4,7 @@ from unstructured.cleaners.core import (
     clean_non_ascii_chars,
     replace_unicode_quotes,
 )
-from langchain_community.vectorstores import FAISS
-import openai
-import streamlit as st
+
 
 def unbold_text(text):
     # Mapping of bold numbers to their regular equivalents
